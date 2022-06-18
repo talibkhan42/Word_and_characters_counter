@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word and character counter</title>
+    <style>
+        h1,
+        p {
+            text-align: center;
+            background-color: rgb(11, 116, 129);
+            color: white;
+            padding: 20px;
+            margin: 0.5px 200px;
+        }
+
+        #textbox {
+            height: 300px;
+            width: 1110px;
+            border: 4px solid rgb(11, 116, 129);
+            font-size: 30px;
+
+        }
+
+        p {
+            font-size: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Word and character counter</h1>
+    <center> <textarea name="" id="textbox" cols="30" rows="10"></textarea></center>
+    <p>
+        <span id="word">0</span> words and
+        <span id="character">0</span> character
+    </p>
+
+
+    <script>
+        // this is for count the character:
+        let textbox = document.getElementById("textbox");
+        textbox.addEventListener('input', function () {
+            var text = this.value;
+            let char = text.length;
+            document.getElementById("character").innerHTML = char;
+            // this is for count the word:
+            text=text.trim();//this will remove spaces from starting and end
+            let words=text.split(" ");
+            let cleanList=words.filter(function(elm){
+return elm != "";
+            });
+            console.log(words);
+            document.getElementById("word").innerHTML=cleanList.length;
+        });
+
+
+    </script>
+</body>
+
+</html>
